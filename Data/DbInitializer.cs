@@ -21,17 +21,20 @@ namespace Viman_Robert_lab2.Data
                 new Book
                 {
                     Title = "Baltagul",
-                    Author = "Mihail Sadoveanu",Price=Decimal.Parse("22")},
+                    Author = "Mihail Sadoveanu",
+                    Price=Decimal.Parse("22")},
                
                 new Book
                 {
                     Title = "Enigma Otiliei",
-                    Author = "George Calinescu",Price=Decimal.Parse("18")},
+                    Author = "George Calinescu",
+                    Price=Decimal.Parse("18")},
                
                 new Book
                 {
                     Title = "Maytrei",
-                    Author = "Mircea Eliade",Price=Decimal.Parse("27")});
+                    Author = "Mircea Eliade",
+                    Price=Decimal.Parse("27")});
 
 
                 context.Customers.AddRange(
@@ -44,7 +47,8 @@ namespace Viman_Robert_lab2.Data
                 new Customer
                 {
                     Name = "Mihailescu Cornel",
-                    Adress = "Str. Bucuresti, nr.45, ap. 2", BirthDate = DateTime.Parse("1969 - 07 - 08") }
+                    Adress = "Str. Bucuresti, nr.45, ap. 2", 
+                    BirthDate = DateTime.Parse("1969 - 07 - 08") }
 
                 );
 
