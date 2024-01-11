@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Viman_Robert_lab2.Data;
 using Microsoft.AspNetCore.Identity;
 using Viman_Robert_lab2.Areas.Identity.Data;
+using Viman_Robert_lab2.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
