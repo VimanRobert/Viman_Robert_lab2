@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Viman_Robert_lab2.Data;
+
+using Microsoft.AspNetCore.Identity;
+using Viman_Robert_lab2.Areas.Identity.Data;
 using Viman_Robert_lab2.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,9 +10,13 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<LibraryContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddSignalR();
+builder.Services.AddDbContext<LibraryContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => 
+options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<IdentityContext>();
+
 
 var app = builder.Build();
 
@@ -32,6 +39,9 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();;
+
+
 app.UseAuthorization();
 
 app.MapControllerRoute(
@@ -39,5 +49,8 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.MapHub<ChatHub>("/Chat");
+
+app.MapRazorPages();
+
 
 app.Run();
