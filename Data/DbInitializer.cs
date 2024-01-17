@@ -11,7 +11,7 @@ namespace Viman_Robert_lab2.Data
             {
                 if (context.Books.Any())
                 {
-                    return; // BD a fost creata anterior
+                    return;
                 }
                 else
                 {
